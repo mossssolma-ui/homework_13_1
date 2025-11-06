@@ -4,7 +4,7 @@ import logging
 from .external_api import convert_to_rub
 
 logger = logging.getLogger("utils")
-file_handler = logging.FileHandler("logs/utils.log", encoding="utf-8")
+file_handler = logging.FileHandler("logs/utils.log", "w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s: %(name)s: %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)

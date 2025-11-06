@@ -1,7 +1,7 @@
 import logging
 
 logger = logging.getLogger("masks")
-file_handler = logging.FileHandler("logs/masks.log", encoding="utf-8")
+file_handler = logging.FileHandler("logs/masks.log", "w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s: %(name)s: %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -18,7 +18,7 @@ def get_mask_card_number(card_number: int) -> str:
         my_card_number = str(card_number)
         if len(my_card_number) >= 16:
             card_text = my_card_number[:6] + "*" * (len(my_card_number) - 10) + my_card_number[-4:]
-            result = " ".join([card_text[i: i + 4] for i in range(0, len(card_text), 4)])
+            result = " ".join([card_text[i : i + 4] for i in range(0, len(card_text), 4)])
             logger.info(f"Маскировка номера карты успешно завершена {result}")
         else:
             result = my_card_number
