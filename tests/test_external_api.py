@@ -1,7 +1,8 @@
 from unittest.mock import patch
 
-from src.external_api import convert_to_rub
 from _pytest.capture import CaptureFixture
+
+from src.external_api import convert_to_rub
 
 
 def test_correct_currency():

@@ -1,9 +1,9 @@
 import json
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open, patch
 
 from _pytest.capture import CaptureFixture
 
-from src.utils import load_financial_transactions, get_transaction_amount
+from src.utils import get_transaction_amount, load_financial_transactions
 
 
 # тесты для функции load_financial_transactions
