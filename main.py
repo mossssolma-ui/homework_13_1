@@ -1,13 +1,20 @@
+from src.masks import get_mask_account, get_mask_card_number
 from src.utils import get_transaction_amount, load_financial_transactions
 
 
 def main() -> None:
-    json_path = "data/operations.json"
+    # вызов функции из masks
+    card_mask = get_mask_card_number(1234567890123456)
+    account_mask = get_mask_account(1234567890)
 
-    rez = load_financial_transactions(json_path)
+    print("Маска карты:", card_mask)
+    print("Маска счёта:", account_mask)
 
-    for i in rez:
-        print(get_transaction_amount(i))
+    # Вызов функции из utils
+    transactions = load_financial_transactions("data/operations.json")
+    if transactions:
+        amount = get_transaction_amount(transactions[0])
+        print("Сумма транзакции в рублях:", amount)
 
 
 if __name__ == "__main__":

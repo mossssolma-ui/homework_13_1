@@ -21,6 +21,7 @@ isort = "^6.0.1"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.2"
 pytest-cov = "^7.0.0"
+types-requests = "^2.32.4.20250913"
 
 [tool.mypy]
 disallow_untyped_defs = true
@@ -29,10 +30,6 @@ exclude = [
     "venv",
     "tests",
 ]
-
-[[tool.mypy.overrides]]
-module = ["requests.*"]
-ignore_missing_imports = true
 
 [tool.black]
 line-length = 119
