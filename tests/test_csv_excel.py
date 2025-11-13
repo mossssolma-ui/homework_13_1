@@ -7,15 +7,13 @@ from src.csv_excel import get_convert_csv_to_list_dict, get_convert_excel_to_lis
 
 @patch("src.csv_excel.pd.read_csv")
 def test_get_convert_csv_to_list_dict(mock_read_csv):
-    mock_read_csv.return_value = pd.DataFrame({
-        "id": [650703, 3598919],
-        "amount": [16210, 29740],
-        "description": ['Счет', 'Discover']
-    })
-    result = get_convert_csv_to_list_dict('file.csv')
+    mock_read_csv.return_value = pd.DataFrame(
+        {"id": [650703, 3598919], "amount": [16210, 29740], "description": ["Счет", "Discover"]}
+    )
+    result = get_convert_csv_to_list_dict("file.csv")
     assert result == [
-        {"id": 650703, "amount": 16210, "description": 'Счет'},
-        {"id": 3598919, "amount": 29740, "description": 'Discover'}
+        {"id": 650703, "amount": 16210, "description": "Счет"},
+        {"id": 3598919, "amount": 29740, "description": "Discover"},
     ]
 
 
@@ -32,18 +30,17 @@ def test_get_convert_csv_to_list_dict_exception(mock_read_csv):
     result = get_convert_csv_to_list_dict("trans.csv")
     assert result == []
 
+
 # тест функции get_convert_excel_to_list_dict
 @patch("src.csv_excel.pd.read_excel")
 def test_get_convert_excel_to_list_dict(mock_read_excel):
-    mock_read_excel.return_value = pd.DataFrame({
-        "id": [650703, 3598919],
-        "amount": [16210, 29740],
-        "description": ['Счет', 'Discover']
-    })
-    result = get_convert_excel_to_list_dict('file.xlsx')
+    mock_read_excel.return_value = pd.DataFrame(
+        {"id": [650703, 3598919], "amount": [16210, 29740], "description": ["Счет", "Discover"]}
+    )
+    result = get_convert_excel_to_list_dict("file.xlsx")
     assert result == [
-        {"id": 650703, "amount": 16210, "description": 'Счет'},
-        {"id": 3598919, "amount": 29740, "description": 'Discover'}
+        {"id": 650703, "amount": 16210, "description": "Счет"},
+        {"id": 3598919, "amount": 29740, "description": "Discover"},
     ]
 
 
