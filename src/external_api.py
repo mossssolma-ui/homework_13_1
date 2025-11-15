@@ -24,7 +24,7 @@ def convert_to_rub(amount: float, currency: str) -> float:
     headers = {"apikey": API_KEY}
 
     try:
-        response = requests.get(BASE_URL, headers=headers, params=params, timeout=10)
+        response = requests.get(BASE_URL, headers=headers, params=params, timeout=10)  # type: ignore
         if response.status_code == 200:
             data = response.json()
             if data.get("success"):
